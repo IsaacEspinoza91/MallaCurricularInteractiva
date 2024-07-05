@@ -12,35 +12,35 @@ public class Main {
 
 
         //Definicion de asignaturas
-        Asignatura calculo1 = new Asignatura(0,"Calculo 1",1);
-        Asignatura algebra1 = new Asignatura(1,"Algebra 1",1);
-        Asignatura fisica1 = new Asignatura(2,"Fisica 1",1);
-        Asignatura tallerDesarrolloPersonal = new Asignatura(3,"Taller Desarrollo Personal",1);
-        Asignatura introduccionIngenieria = new Asignatura(4,"Introduccion a la Ingenieria",1);
-        Asignatura metodosDeEstudio = new Asignatura(5,"Metodos de Estudio",1);
-        Asignatura calculo2 = new Asignatura(6,"Calculo 2",2);
-        Asignatura algebra2 = new Asignatura(7,"Algebra 2",2);
-        Asignatura fisica2 = new Asignatura(8,"Fisica 2",2);
-        Asignatura fundamentosProgramacion = new Asignatura(9,"Fundametos de computación y programación",2);
-        Asignatura quimica = new Asignatura(10,"Quimica General", 2);
-        Asignatura introIngenieriaInformatica = new Asignatura(11,"Introudcción a la ingenería informatica", 2);
-        Asignatura electro = new Asignatura(12,"Electricidad y magnetismo",3);
-        Asignatura comunicacionEfectiva = new Asignatura(13,"Comunicacion Efectiva",3);
-        Asignatura ingles1 = new Asignatura(14,"Ingles 1",3);
-        Asignatura edo = new Asignatura(15,"Ecuaciones diferenciales",3);
-        Asignatura metodos = new Asignatura(16,"Metodos de programacion",3);
-        Asignatura estadistica = new Asignatura(17,"Analisis Estadistico",3);
-        Asignatura ingesis = new Asignatura(18,"Ingenieria de sistemas",4);
-        Asignatura fundeco = new Asignatura(19,"Fundametos de economia",4);
-        Asignatura edeco  = new Asignatura(20,"Estructura de computadores",4);
-        Asignatura paradigmas = new Asignatura(21,"Paradigmas de programacion",4);
-        Asignatura eda = new Asignatura(22,"Analisis de Algoritmos y estructuras de datos",4);
-        Asignatura ingles2 = new Asignatura(23,"Ingles 2",4);
+        Asignatura calculo1 = new Asignatura(0,"Calculo 1",1,"a");
+        Asignatura algebra1 = new Asignatura(1,"Algebra 1",1,"a");
+        Asignatura fisica1 = new Asignatura(2,"Fisica 1",1,"a");
+        Asignatura tallerDesarrolloPersonal = new Asignatura(3,"Taller Desarrollo Personal",1,"a");
+        Asignatura introduccionIngenieria = new Asignatura(4,"Introduccion a la Ingenieria",1,"a");
+        Asignatura metodosDeEstudio = new Asignatura(5,"Metodos de Estudio",1,"a");
+        Asignatura calculo2 = new Asignatura(6,"Calculo 2",2,"a");
+        Asignatura algebra2 = new Asignatura(7,"Algebra 2",2,"a");
+        Asignatura fisica2 = new Asignatura(8,"Fisica 2",2,"a");
+        Asignatura fundamentosProgramacion = new Asignatura(9,"Fundametos de computación y programación",2,"a");
+        Asignatura quimica = new Asignatura(10,"Quimica General", 2,"a");
+        Asignatura introIngenieriaInformatica = new Asignatura(11,"Introducción a la ingenería informatica", 2,"a");
+        Asignatura electro = new Asignatura(12,"Electricidad y magnetismo",3,"a");
+        Asignatura comunicacionEfectiva = new Asignatura(13,"Comunicacion Efectiva",3,"a");
+        Asignatura ingles1 = new Asignatura(14,"Ingles 1",3,"a");
+        Asignatura edo = new Asignatura(15,"Ecuaciones diferenciales",3,"a");
+        Asignatura metodos = new Asignatura(16,"Metodos de programacion",3,"a");
+        Asignatura estadistica = new Asignatura(17,"Analisis Estadistico",3,"a");
+        Asignatura ingesis = new Asignatura(18,"Ingenieria de sistemas",4,"a");
+        Asignatura fundeco = new Asignatura(19,"Fundametos de economia",4,"a");
+        Asignatura edeco  = new Asignatura(20,"Estructura de computadores",4,"a");
+        Asignatura paradigmas = new Asignatura(21,"Paradigmas de programacion",4,"r");
+        Asignatura eda = new Asignatura(22,"Analisis de Algoritmos y estructuras de datos",4,"a");
+        Asignatura ingles2 = new Asignatura(23,"Ingles 2",4,"a");
         Asignatura evalucionProyectosInformaticos = new Asignatura(24,"Evalucion proyectos informaticos",5);
         Asignatura sia = new Asignatura(25,"Sistemas de informacion",5);
         Asignatura inso = new Asignatura(26,"Informatica y sociedad",5);
         Asignatura fundamentosIngenieriaSoftware = new Asignatura(27,"Fundamentos de ingenieria de software",5);
-        Asignatura ingles3 = new Asignatura(28,"Ingles 3",5);
+        Asignatura ingles3 = new Asignatura(28,"Ingles 3",5,"a");
         Asignatura disenoBaseDatos = new Asignatura(29,"Diseno Base Datos",5);
         Asignatura organizacionComputadores = new Asignatura(30,"Organizacion de computadores",5);
         Asignatura tallerBaseDatos = new Asignatura(31,"Taller de Base Datos",6);
@@ -136,8 +136,8 @@ public class Main {
 
         //malla
         MallaInteractiva miMalla = new MallaInteractiva("Ejecucion en Informatica",8,new ArrayList<>(Arrays.asList(s1,s2,s3,s4,s5,s6,s7,s8)));
-
-        miMalla.imprimirMallaCurricular();
+        miMalla.actulizarEstadoTodasLasAsignaturas();
+        miMalla.imprimirMallaCurricularNormal();
 
 
 
