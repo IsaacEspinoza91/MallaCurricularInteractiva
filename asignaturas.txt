@@ -1,0 +1,43 @@
+0,Cálculo 1,1
+1,Algebra 1,1
+2,Física 1,1
+3,Taller Desarrollo Personal,1
+4,Introducción a la Ingeniería,1
+5,Métodos de Estudio,1
+6,Cálculo 2,2
+7,Algebra 2,2
+8,Física 2,2
+9,Fundamentos de computación y programación,2
+10,Química General,2
+11,Introducción a la ingeniería informática,2
+12,Electricidad y magnetismo,3
+13,Comunicación Efectiva,3
+14,Inglés 1,3
+15,Ecuaciones diferenciales,3
+16,Métodos de programación,3
+17,Análisis Estadístico,3
+18,Ingeniería de sistemas,4
+19,Fundamentos de economía,4
+20,Estructura de computadores,4
+21,Paradigmas de programación,4
+22,Analisis de Algoritmos y estructuras de datos,4
+23,Inglés 2,4
+24,Evaluación proyectos informáticos,5
+25,Sistemas de información,5
+26,Informática y sociedad,5
+27,Fundamentos de ingeniería de software,5
+28,Inglés 3,5
+29,Diseño Base Datos,5
+30,Organización de computadores,5
+31,Taller de Base Datos,6
+32,Administración proyectos informáticos,6
+33,Sistemas operativos,6
+34,Técnicas ingeniería de Software,6
+35,Inglés 4,6
+36,Redes computacionales,6
+37,Proyectos ingeniería de Software,7
+38,Tópico 1,7
+39,Tópico 2,7
+40,Tópico 3,7
+41,Seminario,7
+42,Trabajo de titulación,7

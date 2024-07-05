@@ -10,7 +10,7 @@ public class Asignatura {
     private String nombre;
     private int nivel;
     private List<Asignatura> asignaturasRequisitos = new ArrayList<>();
-    private String estado; //Solo tiene 4 tipos->  a:Aprobada, r:Reprobada, d:Disponible, b:Bloqueda
+    private String estado; //Solo tiene 4 tipos->  a:Aprobada, d:Disponible, b:Bloqueda
 
 
 
@@ -79,51 +79,45 @@ public class Asignatura {
     }
 
     public void actualizarEstadoSegunRequisitos() {
+        if (this.asignaturasRequisitos.isEmpty() && this.estado.equals("b")) {
+            //caso si asignatura no tiene requisistos esta disponible
+            this.estado = "d";
+        }
         boolean allRequisitosAprobados = true;
         for(Asignatura asig : this.asignaturasRequisitos) {
-            if(asig.getEstado().equals("b") || asig.getEstado().equals("d") || asig.getEstado().equals("r")) {
+            if(asig.getEstado().equals("b") || asig.getEstado().equals("d")) {
                 allRequisitosAprobados = false;
             }
         }
-        if (allRequisitosAprobados && !this.estado.equals("a") && !this.estado.equals("r")){
+        if (allRequisitosAprobados && !this.estado.equals("a")){
             this.estado = "d";
         }
     }
 
-
-
-
-    @Override
-    public String toString() {
-        return nombre + " (" + id + ")";
-    }
-
-    public String toStringWithColor(){
-        if(estado.equals("d")){
-            return "\033[0;33m"+nombre+"\033[0m";//Amarillo disponible
-        }else if(estado.equals("b")){
-            return nombre;//Sin color es bloqueada
-        }else if(estado.equals("a")){
-            return "\033[0;32m"+nombre+"\033[0m";//Verde aprobada
+    public void aprobarAsignatura(){
+        if(this.estado.equals("d")){
+            this.estado = "a";
+            System.out.println("Asignatura aprobada");
         }else{
-            return "\033[0;31m"+nombre+"\033[0m";//Rojo reprobada
+            System.out.println("La asignatura no esta disponible de cursar");
         }
-    }
-    /*
-    @Override
-    public String toString() {
-        StringBuilder sb = new StringBuilder();
-        sb.append("Asignatura: ").append(nombre).append(" (ID: ").append(id).append("), Previas: ");
-        if (asignaturasRequisitos.isEmpty()) {
-            sb.append("Ninguna");
-        } else {
-            for (Asignatura previa : asignaturasRequisitos) {
-                sb.append(previa.nombre).append(" ");
-            }
-        }
-        return sb.toString().trim();
     }
 
-     */
+
+
+    @Override
+    public String toString() {
+        return nombre + " (" + id + " nivel  "+nivel+")        requisitos"+asignaturasRequisitos;
+    }
+
+    public String toStringWithColor() {
+        if (estado.equals("d")) {
+            return "\033[0;33m" + id + ". " + nombre + "\033[0m";//Amarillo disponible
+        } else if (estado.equals("b")) {
+            return id + ". " + nombre;//Sin color es bloqueada
+        } else { //caso aprobada
+            return "\033[0;32m" + id + ". " + nombre + "\033[0m";//Verde aprobada
+        }
+    }
 
 }

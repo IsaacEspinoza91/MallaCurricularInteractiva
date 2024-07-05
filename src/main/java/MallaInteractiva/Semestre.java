@@ -16,6 +16,10 @@ public class Semestre {
         this.cantidadAsignaturas = cantidadAsignaturas;
         this.asignaturas = asignaturas;
     }
+    public Semestre(int nivel){
+        this.nivel = nivel;
+        this.cantidadAsignaturas = 0;
+    }
 
 
     public int getNivel() {
@@ -51,5 +55,10 @@ public class Semestre {
             sb.append("  ").append(asignatura).append("\n");
         }
         return sb.toString();
+    }
+
+    public void addAsignatura(Asignatura asignatura) {
+        this.asignaturas.add(asignatura);
+        this.cantidadAsignaturas = this.asignaturas.size();
     }
 }

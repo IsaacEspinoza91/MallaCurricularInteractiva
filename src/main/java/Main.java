@@ -5,57 +5,13 @@ import MallaInteractiva.Semestre;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) {
 
 
-
-        //Definicion de asignaturas
-        Asignatura calculo1 = new Asignatura(0,"Calculo 1",1,"a");
-        Asignatura algebra1 = new Asignatura(1,"Algebra 1",1,"a");
-        Asignatura fisica1 = new Asignatura(2,"Fisica 1",1,"a");
-        Asignatura tallerDesarrolloPersonal = new Asignatura(3,"Taller Desarrollo Personal",1,"a");
-        Asignatura introduccionIngenieria = new Asignatura(4,"Introduccion a la Ingenieria",1,"a");
-        Asignatura metodosDeEstudio = new Asignatura(5,"Metodos de Estudio",1,"a");
-        Asignatura calculo2 = new Asignatura(6,"Calculo 2",2,"a");
-        Asignatura algebra2 = new Asignatura(7,"Algebra 2",2,"a");
-        Asignatura fisica2 = new Asignatura(8,"Fisica 2",2,"a");
-        Asignatura fundamentosProgramacion = new Asignatura(9,"Fundametos de computación y programación",2,"a");
-        Asignatura quimica = new Asignatura(10,"Quimica General", 2,"a");
-        Asignatura introIngenieriaInformatica = new Asignatura(11,"Introducción a la ingenería informatica", 2,"a");
-        Asignatura electro = new Asignatura(12,"Electricidad y magnetismo",3,"a");
-        Asignatura comunicacionEfectiva = new Asignatura(13,"Comunicacion Efectiva",3,"a");
-        Asignatura ingles1 = new Asignatura(14,"Ingles 1",3,"a");
-        Asignatura edo = new Asignatura(15,"Ecuaciones diferenciales",3,"a");
-        Asignatura metodos = new Asignatura(16,"Metodos de programacion",3,"a");
-        Asignatura estadistica = new Asignatura(17,"Analisis Estadistico",3,"a");
-        Asignatura ingesis = new Asignatura(18,"Ingenieria de sistemas",4,"a");
-        Asignatura fundeco = new Asignatura(19,"Fundametos de economia",4,"a");
-        Asignatura edeco  = new Asignatura(20,"Estructura de computadores",4,"a");
-        Asignatura paradigmas = new Asignatura(21,"Paradigmas de programacion",4,"r");
-        Asignatura eda = new Asignatura(22,"Analisis de Algoritmos y estructuras de datos",4,"a");
-        Asignatura ingles2 = new Asignatura(23,"Ingles 2",4,"a");
-        Asignatura evalucionProyectosInformaticos = new Asignatura(24,"Evalucion proyectos informaticos",5);
-        Asignatura sia = new Asignatura(25,"Sistemas de informacion",5);
-        Asignatura inso = new Asignatura(26,"Informatica y sociedad",5);
-        Asignatura fundamentosIngenieriaSoftware = new Asignatura(27,"Fundamentos de ingenieria de software",5);
-        Asignatura ingles3 = new Asignatura(28,"Ingles 3",5,"a");
-        Asignatura disenoBaseDatos = new Asignatura(29,"Diseno Base Datos",5);
-        Asignatura organizacionComputadores = new Asignatura(30,"Organizacion de computadores",5);
-        Asignatura tallerBaseDatos = new Asignatura(31,"Taller de Base Datos",6);
-        Asignatura administracionProyeInfor = new Asignatura(32,"Administracion proyectos informaticos",6);
-        Asignatura sistemasOperativos = new Asignatura(33,"Sistemas Operativos",6);
-        Asignatura tecnicasIngeSoftware = new Asignatura(34,"Tecnicas Ingenieria de Software",6);
-        Asignatura ingles4 = new Asignatura(35,"Ingles 4",6);
-        Asignatura redesComputacionales = new Asignatura(36,"Redes Computacionales",6);
-        Asignatura proyectosIngenieriaSoftware = new Asignatura(37,"Proyectos Ingenieria de Software",7);
-        Asignatura topico1 = new Asignatura(38,"Topico 1",7);
-        Asignatura topico2 = new Asignatura(39,"Topico 2",7);
-        Asignatura topico3 = new Asignatura(40,"Topico 3",7);
-        Asignatura seminario = new Asignatura(41,"Seminario",7);
-        Asignatura tesis = new Asignatura(42,"Tesis",7);
-
+/*
 
 
         //Asignatuas requisitos y proximos
@@ -133,15 +89,81 @@ public class Main {
 
 
 
-
+*/
         //malla
-        MallaInteractiva miMalla = new MallaInteractiva("Ejecucion en Informatica",8,new ArrayList<>(Arrays.asList(s1,s2,s3,s4,s5,s6,s7,s8)));
-        miMalla.actulizarEstadoTodasLasAsignaturas();
-        miMalla.imprimirMallaCurricularNormal();
+        MallaInteractiva miMalla = new MallaInteractiva("Ejecucion en Informatica");
+        miMalla.obtenerDatosByTXT("asignaturas.txt","requisitosAsignaturas.txt");
+        //miMalla.imprimirMallaCurricularNormal();
 
+        Scanner inTeclado = new Scanner(System.in);
+        String nombreAsignatura;
+        int opcionPrincipal, eleccion1, idAsignatura;
+        do {
+            printMenuPrincipal();
+            opcionPrincipal = inTeclado.nextInt();
+            switch(opcionPrincipal){
+                case 1:
+                    miMalla.imprimirMallaCurricularNormal();
+                    break;
+                case 2:
+                    do {
+                        miMalla.actualizarEstadoTodasLasAsignaturas();
+                        miMalla.imprimirMallaCurricularNormal();
+                        System.out.println("Ingrese la Id de la asignatura aprobada:      (en caso de querer salir ingrese un entero negativo)");
+                        idAsignatura = inTeclado.nextInt();
+                        if(idAsignatura >= 0){ // condicion para verificar
+                            miMalla.getAsignaturaById(idAsignatura).aprobarAsignatura(); //cambiar estado de asignatura a aprobado si es que esta disponible
+                        }
+                    } while (idAsignatura >= 0);
+                    break;
+                case 3:
+                    System.out.println("Desea buscar asignatura por nombre o por id: (1: Nombre, 2: Id)");
+                    eleccion1 = inTeclado.nextInt();
+                    if(eleccion1 == 1){
+                        System.out.println("Ingrese el nombre de la asignatura");
+                        inTeclado.nextLine();
+                        nombreAsignatura = inTeclado.nextLine();
+                        Asignatura auxAsig = miMalla.getAsignaturaByNombre(nombreAsignatura);
+                        System.out.println("Datos asignatura:\n\tNombre: "+auxAsig.getNombre()+",  Id: "+auxAsig.getId()+",  Nivel: "+auxAsig.getNivel()+"\n\tRequisitos: ");
+                        for(Asignatura as : auxAsig.getAsignaturasRequisitos()){
+                            System.out.println("\t\tNombre: "+as.getNombre()+",  Id: "+as.getId());
+                        }
+                    }else if(eleccion1 == 2){
+                        System.out.println("Ingrese la id de la asignatura");
+                        idAsignatura = inTeclado.nextInt();
+                        Asignatura auxAsig = miMalla.getAsignaturaById(idAsignatura);
+                        System.out.println("Datos asignatura:\n\tNombre: "+auxAsig.getNombre()+",  Id: "+auxAsig.getId()+",  Nivel: "+auxAsig.getNivel()+"\n\tRequisitos: ");
+                        for(Asignatura as : auxAsig.getAsignaturasRequisitos()){
+                            System.out.println("\t\tNombre: "+as.getNombre()+",  Id: "+as.getId());
+                        }
+                    }
+
+                    break;
+                case 4:
+                    System.out.println("Saliendo del programa");
+                    break;
+                default:
+                    break;
+
+            }
+        }while(opcionPrincipal != 4);
 
 
     }
+
+
+
+
+    private static void printMenuPrincipal() {
+        System.out.println("\n\n### Malla Curricular Interactiva ###");
+        System.out.println("Opciones\n");
+        System.out.println("\t1.  Ver malla curricular");
+        System.out.println("\t2.  Simular estado malla curricular");
+        System.out.println("\t3.  Solicitar información sobre asignatura");
+        System.out.println("\t4.  Salir");
+        System.out.println("\nIngresa una opcion y presiona Enter: ");
+    }
+
 }
 
 
