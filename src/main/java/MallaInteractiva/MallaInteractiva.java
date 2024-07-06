@@ -58,7 +58,13 @@ public class MallaInteractiva {
         }
     }
 
-
+    public void setAllAsignaturasBloquedas(){
+        for (Semestre semestre : semestres) {
+            for (Asignatura a : semestre.getAsignaturas()) {
+                a.setEstado("b");
+            }
+        }
+    }
 
 
 

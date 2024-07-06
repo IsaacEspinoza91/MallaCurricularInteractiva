@@ -115,6 +115,7 @@ public class Main {
                             miMalla.getAsignaturaById(idAsignatura).aprobarAsignatura(); //cambiar estado de asignatura a aprobado si es que esta disponible
                         }
                     } while (idAsignatura >= 0);
+                    miMalla.setAllAsignaturasBloquedas();
                     break;
                 case 3:
                     System.out.println("Desea buscar asignatura por nombre o por id: (1: Nombre, 2: Id)");
