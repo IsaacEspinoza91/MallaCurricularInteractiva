@@ -49,6 +49,27 @@ public class MallaInteractiva {
 
 
 
+    public boolean existeAsignaturaByNombre(String nombre) {
+        for (Semestre semestre : semestres) {
+            for (Asignatura asignatura : semestre.getAsignaturas()) {
+                if (asignatura.getNombre().equals(nombre)) {
+                    return true;
+                }
+            }
+        }
+        return false;
+    }
+
+    public boolean existeAsignaturaById(int id){
+        for (Semestre semestre : semestres) {
+            for (Asignatura asignatura : semestre.getAsignaturas()) {
+                if (asignatura.getId() == id) {
+                    return true;
+                }
+            }
+        }
+        return false;
+    }
 
     public void actualizarEstadoTodasLasAsignaturas(){
         for (Semestre semestre : semestres) {
@@ -68,23 +89,21 @@ public class MallaInteractiva {
 
 
 
-
     public void imprimirMallaCurricularNormal() {
         int maxAsignaturas = 0;
         for (Semestre semestre : semestres) {
             maxAsignaturas = Math.max(maxAsignaturas, semestre.getAsignaturas().size());
         }
-
-        System.out.println("\n\nMalla Curricular de la carrera: " + nombreCarrera);
+        System.out.println("\n\n--------------------------------------------------------------------------------------");
+        System.out.println("Malla Curricular de la carrera: " + nombreCarrera);
         for (Semestre semestre : semestres) {
             System.out.println("\nNivel " + semestre.getNivel());
             for(Asignatura ramo : semestre.getAsignaturas()) {
                 System.out.println("\t" + ramo.toStringWithColor());
             }
         }
+        System.out.println("\n--------------------------------------------------------------------------------------\n");
     }
-
-
 
 
 

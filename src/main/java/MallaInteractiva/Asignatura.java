@@ -97,9 +97,9 @@ public class Asignatura {
     public void aprobarAsignatura(){
         if(this.estado.equals("d")){
             this.estado = "a";
-            System.out.println("Asignatura aprobada");
+            System.out.println("\n\n ---- Asignatura aprobada ----");
         }else{
-            System.out.println("La asignatura no esta disponible de cursar");
+            System.out.println("\n\n ---- La asignatura no esta disponible de cursar ----");
         }
     }
 
